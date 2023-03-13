@@ -48,5 +48,17 @@
     <ClCompile Include="싱글톤 패턴2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="구조체.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DataLecSample.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleListSample.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleList1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -86,9 +86,9 @@
 //int Min(int a, int b);
 //
 
-void Factorial(int b, int*pRet);
-
-int main(void) {
+//void Factorial(int b, int*pRet);
+//
+//int main(void) {
 
 
 	//int arr[100] = {0,};
@@ -154,19 +154,19 @@ int main(void) {
 	//	result = fPtr(a, b);
 	//	printf("결과 : %d\n", result);
 	//}
-
-	int a, result;
-
-	printf("정수를 입력하시오 :   ");
-
-	scanf_s("%d", &a);
-
-	Factorial(a, &result);
-
-	printf("결과 : %d\n", result);
-
-	return 0;
-} // 포인터 == 주소값!!
+//
+//	int a, result;
+//
+//	printf("정수를 입력하시오 :   ");
+//
+//	scanf_s("%d", &a);
+//
+//	Factorial(a, &result);
+//
+//	printf("결과 : %d\n", result);
+//
+//	return 0;
+//} // 포인터 == 주소값!!
 
 
 //int Add(int a, int b) {
@@ -177,14 +177,16 @@ int main(void) {
 //	return a - b;
 //}
 
-void Factorial(int b, int *pRet) {
+//void Factorial(int b, int *pRet) {
+//
+//	int i; 
+//	*pRet = 1;
+//
+//
+//	for ( i = 1; i < (b + 1); i++)
+//	{
+//		*pRet *= i; // 팩토리얼 구현
+//	}
+//}
 
-	int i; 
-	*pRet = 1;
-
-
-	for ( i = 1; i < (b + 1); i++)
-	{
-		*pRet *= i; // 팩토리얼 구현
-	}
-}
+//포인터를 쓰는 이유: 다량의 데이터를 쉽게 다룰 수 있음.
