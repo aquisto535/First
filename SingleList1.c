@@ -3,7 +3,7 @@
 #include<malloc.h> //malloc 사용할 때 필요.
 
 typedef struct NODE //말 그대로 자료형(type)를 정의 하는 것(define) int나 float 같은 자료형을 내가 원하는 대로 정의 할 수 있다.
-{	
+{
 	char szData[64];
 	struct NODE* next; // 다음 노드의 주소를 저장할 포인터. 다른 노드의 메모리 주소를 저장함.
 
@@ -13,9 +13,9 @@ NODE* g_pHead = NULL; //head만을 위한 포인터 변수.동적으로 생성된 노드의 포인터�
 
 //연결리스트 전체 출력을 해주는 함수
 void PrintList()
-{	
+{
 	NODE* pHead = g_pHead; //다른 노드들을 대상으로 한 포인터 변수.g_pHead의 값을 이어받은 후 next값을 지정함.
-	
+
 	//while (g_pHead != NULL)
 	//{
 	//	printf("[%p] %s, next[%p]\n", g_pHead, g_pHead->szData, g_pHead->next );  
@@ -25,7 +25,7 @@ void PrintList()
 
 	while (pHead != NULL)
 	{
-		printf("[%p] %s, next[%p]\n", pHead, pHead->szData, pHead->next );
+		printf("[%p] %s, next[%p]\n", pHead, pHead->szData, pHead->next);
 		pHead = pHead->next;
 	}
 	putchar('\n');
@@ -36,8 +36,8 @@ int InsertNewNode(char* pszData)
 	NODE* pNode = (NODE*)malloc(sizeof(NODE)); // 프로그램이 실행 중일 때 사용자가 직접 힙 영역에 메모리를 할당할 수 있게 해줍니다
 	memset(pNode, 0, sizeof(NODE)); // 메모리의 내용(값)을 원하는 크기만큼 특정 값으로 세팅할 수 있는 함수
 
-	strcpy_s( pNode->szData,sizeof(pNode->szData), pszData); //문자열 복제함수. 대상 자료형의 크기를 바이트 단위로 기술해야함.여기서는 초기화용
-															// 세번째 인자의 포인터가 가리키는 메모리에 저장된 문자열을 첫번째 인자가 가리키는 메모리에 복사함.
+	strcpy_s(pNode->szData, sizeof(pNode->szData), pszData); //문자열 복제함수. 대상 자료형의 크기를 바이트 단위로 기술해야함.여기서는 초기화용
+	// 세번째 인자의 포인터가 가리키는 메모리에 저장된 문자열을 첫번째 인자가 가리키는 메모리에 복사함.
 
 	if (g_pHead == NULL)
 		g_pHead = pNode;
@@ -47,7 +47,7 @@ int InsertNewNode(char* pszData)
 		g_pHead = pNode; // 기존 노드를 가리키던 포인터가 값을 내주고 빈 공간에 새로 만든 노드를 가리킴.
 	}
 
-	
+
 
 	return 1;
 }
@@ -56,23 +56,22 @@ int InsertNewNode(char* pszData)
 void ReleaseList(void) //리스트 삭제 함수.
 {
 	NODE* pTmp = g_pHead;
-		
-
-		while (pTmp != NULL)
-		{
-			NODE* pDelete = pTmp;
-			pTmp = pTmp->next;
-
-			printf("DeleteL [%p] %s\n", pDelete, pDelete->szData);
-			free(pDelete);
-		}
-
-/*		pTmp = pTmp->next; 
-
-		free(pTmp);*/ //pTmp가 가리키는 영역이 해제되어 버림.
 
 
-	
+	while (pTmp != NULL)
+	{
+		NODE* pDelete = pTmp;
+		pTmp = pTmp->next;
+
+		printf("DeleteL [%p] %s\n", pDelete, pDelete->szData);
+		free(pDelete);
+	}
+
+	/*		pTmp = pTmp->next;
+			free(pTmp);*/ //pTmp가 가리키는 영역이 해제되어 버림.
+
+
+
 }
 
 int FindData(char* pszData)
@@ -96,17 +95,17 @@ int DeleteData(char* pszData)
 	NODE* pPrev = NULL;
 
 	while (pTmp != NULL)
-	{	
+	{
 		//문자열 비교함수
 		if (strcmp(pTmp->szData, pszData) == 0)
 		{
 			//삭제. 더미 헤드가 없으면 앞전 노드를 고민하는 코드가 들어가야함.
 			printf("DeleteData(): %s\n", pTmp->szData);
-			if (pPrev != NULL) 
+			if (pPrev != NULL)
 			{
 				pPrev->next = pTmp->next;
 				free(pTmp);
-			}	
+			}
 			else
 			{
 				//삭제할 데이터가 첫번째 노드인 경우; pPrev가 NULL이 되어 버림.
@@ -122,7 +121,7 @@ int DeleteData(char* pszData)
 	return 0;
 }
 
-int main() 
+int main()
 {
 
 	//List 테스트를 위한 코드
@@ -136,7 +135,7 @@ int main()
 	if (FindData("TEST01") == 1)
 	{
 		printf("FindData() : TEST01 Found\n");
-	 }
+	}
 
 	if (FindData("TEST02") == 1)
 	{
