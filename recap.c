@@ -1,20 +1,37 @@
-ï»¿#include <stdio.h>
-#include<string.h> //strcpy ì‚¬ìš©í•  ë•Œ í•„ìš”.
-#include<malloc.h> //malloc ì‚¬ìš©í•  ë•Œ í•„ìš”.
+#include <stdio.h>
+#include <malloc.h>
+#include <string.h>
 
-void main()
+typedef struct Node
 {
-	char a = 'C';
-	int b = 10;
-	double c = 3.14;
+	int arr[64];
+	struct Node* next;
 
-	char* Pa = &a;
-	int* Pb = &b;
-	double* Pc = &c;
 
-	int pb = 7;
-	(*Pb) + 1; //*ë¥¼ í†µí•´ í¬ì¸í„°ê°€ ê°€ë¦¬í‚¤ê³  ìžˆëŠ” ë³€ìˆ˜ì˜ ê°’ì„ ë¨¼ì € ì°¸ì¡°í•œ í›„ ê°’ì„ 1 ì¦ê°€.
+}Node;
 
-	printf("%d\n", pb);
-	printf("%d", b);
+Node* g_Head = NULL;
+
+InsertNode(int *a)
+{	
+	Node* pNode = (Node*)malloc(sizeof(Node));
+	memset(pNode, 0, sizeof(Node));
+
+
+	if (g_Head == NULL)
+		g_Head = pNode;
+	else
+	{
+		pNode->next = g_Head; //»õ·Î¿î ³ëµåÀÇ Æ÷ÀÎÅÍ°¡ ±âÁ¸ ³ëµå¸¦ °¡¸®Å´.
+		g_Head = pNode; // ±âÁ¸ ³ëµå¸¦ °¡¸®Å°´ø Æ÷ÀÎÅÍ°¡ °ªÀ» ³»ÁÖ°í ºó °ø°£¿¡ »õ·Î ¸¸µç ³ëµå¸¦ °¡¸®Å´.
+	}
+
+
+	
+}
+
+
+int main()
+{
+	InsertNode(3);
 }

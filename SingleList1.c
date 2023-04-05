@@ -20,7 +20,7 @@ void PrintList()
 	//{
 	//	printf("[%p] %s, next[%p]\n", g_pHead, g_pHead->szData, g_pHead->next );  
 	//	g_pHead = g_pHead->next; //g_pHead는 항상 head노드(첫번째 노드)를 가리켜야 하는데 이것을 다음 값을 가리키는 걸로 억지로 변조시킴.
-	//							 //변수를 여러번 쓰려고 하면 기존 데이터가 사라질 수 있다!!
+	//							 //변수를 여러번 쓰려고 하면 기존 데이터가 사라질 수 있다!!(null 값을 g_pHead에게 다시 대입하는 꼴이 된다!!)
 	//}
 
 	while (pHead != NULL)
@@ -43,7 +43,7 @@ int InsertNewNode(char* pszData)
 		g_pHead = pNode;
 	else
 	{
-		pNode->next = g_pHead; //새로운 노드의 포인터가 기존 노드를 가리킴.기존 노드 값을 넘겨줌.
+		pNode->next = g_pHead; //새로운 노드의 포인터가 기존 노드를 가리킴.
 		g_pHead = pNode; // 기존 노드를 가리키던 포인터가 값을 내주고 빈 공간에 새로 만든 노드를 가리킴.
 	}
 
